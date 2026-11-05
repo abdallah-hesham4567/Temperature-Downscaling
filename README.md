@@ -104,20 +104,6 @@ Evaluated on 744,600 rows from 11 held-out blocks (RMSE and MAE in °C).
 | CNN (PyTorch) | 1.3825 | 0.8592 | 0.9936 | 151.9887 | 16.9465% |
 
 
-Model	RMSE	MAE	R2	Train time (s)	Improvement vs baseline (%)
-0	CNN (PyTorch)	1.3825	0.8592	0.9936	151.9887	16.9465
-1	CatBoost	1.5487	1.0435	0.9920	10.9721	6.9621
-2	XGBoost	1.6011	1.0718	0.9915	7.7601	3.8103
-3	Interpolation (baseline)	1.6646	1.1087	0.9908	0.0000	0.0000
-4	Random Forest	1.6892	1.1434	0.9905	89.4603	-1.4785
-5	MLP (PyTorch)	1.7278	1.1400	0.9900	75.3823	-3.7965
-
-**Findings**
-
-- Among the tree models, CatBoost is best and XGBoost is second. Both beat interpolation on held-out locations.
-- Random Forest does not beat the interpolation baseline on unseen blocks, even with a larger `min_samples_leaf`. It fits the training locations but does not carry the correction to new ones.
-- Gains over interpolation are modest across the board. This is expected: the proxy has no fine-scale predictors such as elevation, so there is little information beyond location and time for the models to use.
-- TODO: one or two sentences on the MLP and CNN once the results are in.
 
 ## Repository structure
 
