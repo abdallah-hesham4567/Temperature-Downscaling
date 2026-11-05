@@ -9,15 +9,6 @@
   <img src="https://img.shields.io/badge/ARRAYS-NUMPY-4DABCF?style=for-the-badge&labelColor=555555&logo=numpy&logoColor=white" alt="NumPy">
   <img src="https://img.shields.io/badge/TABULAR-PANDAS-150458?style=for-the-badge&labelColor=555555&logo=pandas&logoColor=white" alt="pandas">
   <img src="https://img.shields.io/badge/GEOSPATIAL-XARRAY-3B6EA5?style=for-the-badge&labelColor=555555" alt="xarray">
-  <img src="https://img.shields.io/badge/PLOTS-MATPLOTLIB-11557C?style=for-the-badge&labelColor=555555" alt="Matplotlib">
-  <img src="https://img.shields.io/badge/NOTEBOOK-JUPYTER-F37626?style=for-the-badge&labelColor=555555&logo=jupyter&logoColor=white" alt="Jupyter">
-  <img src="https://img.shields.io/badge/RUNS%20ON-COLAB-F9AB00?style=for-the-badge&labelColor=555555&logo=googlecolab&logoColor=white" alt="Google Colab">
-  <br>
-  <img src="https://img.shields.io/badge/VALIDATION-SPATIAL%20HOLD--OUT-6F42C1?style=for-the-badge&labelColor=555555" alt="Spatial hold-out validation">
-  <img src="https://img.shields.io/badge/MODELS-5%20%2B%20BASELINE-0A7EA4?style=for-the-badge&labelColor=555555" alt="5 models plus baseline">
-  <img src="https://img.shields.io/badge/DATA-NCEP%2FNCAR%20REANALYSIS-555555?style=for-the-badge&labelColor=555555" alt="NCEP/NCAR reanalysis">
-  <img src="https://img.shields.io/github/followers/abdallah-hesham4567?label=FOLLOW&style=for-the-badge&logo=github&logoColor=white&labelColor=555555&color=2EA043" alt="GitHub followers">
-</p>
 
 Predicting temperature on a finer spatial grid from coarse weather data, and comparing five models under a spatially held-out evaluation.
 
@@ -109,16 +100,17 @@ Evaluated on 744,600 rows from 11 held-out blocks (RMSE and MAE in °C).
 | Random Forest | 1.6892 | 1.1434 | 0.9905 | 76.6 | -1.5% |
 | XGBoost | 1.6011 | 1.0718 | 0.9915 | 8.5 | 3.8% |
 | CatBoost | 1.5487 | 1.0435 | 0.9920 | 11.5 | 7.0% |
-| MLP (PyTorch) | TODO | TODO | TODO | TODO | TODO |
-| CNN (PyTorch) | TODO | TODO | TODO | TODO | TODO |
+| MLP (PyTorch) | 1.7278 | 1.1400 | 0.9900 | 75.3823 | -3.7965% |
+| CNN (PyTorch) | 1.3825 | 0.8592 | 0.9936 | 151.9887 | 16.9465% |
 
-<!-- Fill the TODO rows from the final comparison cell after a full re-run. Times are CPU-only (Colab). -->
 
-![Model comparison](figures/model_comparison.png)
-
-![Error map on held-out blocks](figures/error_map.png)
-
-![Coarse vs downscaled vs truth](figures/downscaling_example.png)
+Model	RMSE	MAE	R2	Train time (s)	Improvement vs baseline (%)
+0	CNN (PyTorch)	1.3825	0.8592	0.9936	151.9887	16.9465
+1	CatBoost	1.5487	1.0435	0.9920	10.9721	6.9621
+2	XGBoost	1.6011	1.0718	0.9915	7.7601	3.8103
+3	Interpolation (baseline)	1.6646	1.1087	0.9908	0.0000	0.0000
+4	Random Forest	1.6892	1.1434	0.9905	89.4603	-1.4785
+5	MLP (PyTorch)	1.7278	1.1400	0.9900	75.3823	-3.7965
 
 **Findings**
 
